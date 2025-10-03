@@ -3,12 +3,11 @@ import requests
 class NutritionAnalyzer:
     def __init__(self):
         self.base_url = "https://api.nal.usda.gov/fdc/v1"
-        # DEMO_KEY works but has rate limits - can get free key if needed
         self.api_key = "DEMO_KEY"
         self.saved_foods = []
 
     def search_food(self, food_name):
-        """Search for a food item in the USDA database"""
+        # Search for a food item in the USDA database
         endpoint = f"{self.base_url}/foods/search"
         params = {
             "query": food_name,
@@ -210,7 +209,7 @@ class NutritionAnalyzer:
                 print(f"• {display}: {winner[1]} ({winner[2]:.2f})")
 
     def clear_saved_foods(self):
-        """Clear out the comparison list"""
+        # Clear out the comparison list
         self.saved_foods = []
         print("\n✓ Cleared all saved foods.")
 
@@ -224,7 +223,7 @@ class NutritionAnalyzer:
             print(f"{idx}. {food['name']}")
 
     def run(self):
-        """Main loop - handles user input and calls appropriate functions"""
+            #  handles user input and calls appropriate functions
         print("\n" + "=" * 60)
         print(" " * 15 + "NUTRITION ANALYZER")
         print("=" * 60)
